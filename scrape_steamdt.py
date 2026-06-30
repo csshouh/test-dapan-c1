@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""变体: scrape_steamdt_C1.py - A1+B1: goto 3s, tab 3s, slide 1.8s, stable=1, timeout=10s
-基于原始 scrape_steamdt.py 生成, 修改了 8 处参数。
+"""变体: scrape_steamdt_E3.py - C1+max_slides_broad_1day=4
+基于C1方案生成, 修改参数以测试衍生优化。
 """
 """SteamDT 大盘+热门板块 K线采集（含 VOL 真实成交量 + TUR 真实成交额）
 
@@ -305,7 +305,7 @@ def scrape_steamdt(page):
 
         for pk in ["1day", "1hour", "7day"]:
             if pk in broad_periods:
-                max_slides = 6 if pk == "1day" else 4
+                max_slides = 4 if pk == "1day" else 4
                 print(f"\n  [1.5] dataZoom滑动加载大盘 {pk} 完整数据...", flush=True)
                 kline_responses.clear()
                 if _click_period(PERIOD_BTNS[pk]):
